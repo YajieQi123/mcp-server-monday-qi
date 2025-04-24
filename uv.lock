@@ -219,7 +219,7 @@ cli = [
 ]
 
 [[package]]
-name = "mcp-server-monday"
+name = "mcp-server-monday-qi"
 version = "0.2.9"
 source = { editable = "." }
 dependencies = [

@@ -34,7 +34,7 @@ from mcp_server_monday.item import (
     handle_monday_update_item,
 )
 
-logger = logging.getLogger("mcp-server-monday")
+logger = logging.getLogger("mcp-server-monday-qi")
 
 
 class ToolName(str, Enum):

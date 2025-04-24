@@ -9,12 +9,12 @@ from mcp.server.models import InitializationOptions
 from monday import MondayClient
 
 from mcp_server_monday.constants import MONDAY_API_KEY
-from mcp_server_monday.tools import (
+from mcp_server_monday_qi.tools import (
     register_tools,
 )
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("mcp-server-monday")
+logger = logging.getLogger("mcp-server-monday-qi")
 
 monday_client = None
 server = Server("monday")
@@ -33,7 +33,7 @@ async def main():
             write_stream,
             InitializationOptions(
                 server_name="monday",
-                server_version=importlib.metadata.version("mcp-server-monday"),
+                server_version=importlib.metadata.version("mcp-server-monday-qi"),
                 capabilities=server.get_capabilities(
                     notification_options=NotificationOptions(),
                     experimental_capabilities={},

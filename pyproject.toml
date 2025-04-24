@@ -1,5 +1,5 @@
 [project]
-name = "mcp-server-monday"
+name = "mcp-server-monday-qi"
 version = "0.2.9"
 description = "MCP Server for monday.com"
 readme = "README.md"
@@ -20,11 +20,11 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
 include = [
-  "src/mcp_server_monday/*.py",
+  "src/mcp_server_monday_qi/*.py",
 ]
 
 [project.scripts]
-mcp-server-monday = "mcp_server_monday:main"
+mcp-server-monday-qi = "mcp_server_monday_qi:main"
 
 [project.urls]
 Homepage = "https://github.com/sakce/mcp-server-monday/"
