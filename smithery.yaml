@@ -16,4 +16,4 @@ startCommand:
         description: The workspace name for the Monday.com account.
   commandFunction:
     |-
-    (config) => ({command: 'mcp-server-monday', env: {MONDAY_API_KEY: config.mondayApiKey, MONDAY_WORKSPACE_NAME: config.mondayWorkspaceName}})
+    (config) => ({command: 'mcp-server-monday-qi', env: {MONDAY_API_KEY: config.mondayApiKey, MONDAY_WORKSPACE_NAME: config.mondayWorkspaceName}})
