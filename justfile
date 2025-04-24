@@ -1,7 +1,7 @@
 default:
   just --list
 
-PACKAGE_NAME := "mcp-server-monday"
+PACKAGE_NAME := "mcp-server-monday-qi"
 
 sync:
   uv sync

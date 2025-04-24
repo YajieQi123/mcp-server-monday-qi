@@ -24,7 +24,7 @@ include = [
 ]
 
 [project.scripts]
-mcp-server-monday-qi = "mcp_server_monday_qi:main"
+mcp-server-monday-qi = "mcp_server_monday:main"
 
 [project.urls]
-Homepage = "https://github.com/sakce/mcp-server-monday/"
+Homepage = "https://github.com/YajieQi123/mcp-server-monday-qi"
