@@ -15,52 +15,93 @@ async def handle_monday_list_items_in_groups(
     limit: int,
     monday_client: MondayClient,
     cursor: Optional[str] = None,
+    column_ids: Optional[list[str]] = None,   # 正确写法
 ) -> list[types.TextContent]:
-    """List all items in the specified groups of a Monday.com board"""
-
-    if groupIds and not cursor:
-        formatted_group_ids = ", ".join([f'"{group_id}"' for group_id in groupIds])
-        items_page_params = f"""
-            query_params: {{
-                rules: [
-                    {{column_id: "group", compare_value: [{formatted_group_ids}], operator: any_of}}
-                ]
-            }}
-        """
+    """
+    List all items in the specified groups of a Monday.com board，自动分页抓取所有 item，确保不遗漏。
+    返回所有 item 的 name 列表，按首字母排序。
+    """
+    all_items = []
+    next_cursor = cursor
+    column_ids = column_ids or []
+    col_query = ""
+    if column_ids:
+        quoted_ids = ','.join(['"{}"'.format(cid) for cid in column_ids])
+        col_query = f'column_values(ids: [{quoted_ids}]) {{id text}}'
     else:
-        items_page_params = f'cursor: "{cursor}"'
+        col_query = ""
 
-    items_page_params += f" limit: {limit}"
-    query = f"""
-    query {{
-        boards (ids: {boardId}) {{
-            items_page ({items_page_params}) {{
-                cursor
-                items {{
-                    id
-                    name
-                    updates {{
+    while True:
+        if groupIds and not next_cursor:
+            formatted_group_ids = ", ".join([f'"{group_id}"' for group_id in groupIds])
+            items_page_params = f"""
+                query_params: {{
+                    rules: [
+                        {{column_id: \"group\", compare_value: [{formatted_group_ids}], operator: any_of}}
+                    ]
+                }}
+            """
+        else:
+            items_page_params = f'cursor: "{next_cursor}"'
+
+        items_page_params += f" limit: {limit}"
+        query = f"""
+        query {{
+            boards (ids: {boardId}) {{
+                items_page ({items_page_params}) {{
+                    cursor
+                    items {{
                         id
-                        body
-                    }}
-                    column_values {{
-                        id
-                        text
-                        value
+                        name
+                        {col_query}
                     }}
                 }}
             }}
         }}
-    }}
-    """
-
-    response = monday_client.custom._query(query)
-    return [
-        types.TextContent(
-            type="text",
-            text=f"Items in groups {groupIds} of Monday.com board {boardId}: {json.dumps(response)}",
-        )
-    ]
+        """
+        response = monday_client.custom._query(query)
+        try:
+            items_page = response["data"]["boards"][0]["items_page"]
+            items = items_page.get("items", [])
+            all_items.extend(items)
+            next_cursor = items_page.get("cursor")
+            if not next_cursor:
+                break
+        except Exception as e:
+            break
+    # 去重（如有重复）
+    unique_items = {item["id"]: item for item in all_items}.values()
+    
+    # 根据是否指定列来构建返回结果
+    if column_ids:
+        result_lines = []
+        for item in unique_items:
+            item_info = f"{item['name']} (ID: {item['id']})"
+            column_values = item.get('column_values', [])
+            if column_values:
+                column_info = []
+                for col in column_values:
+                    column_info.append(f"{col['id']}: {col['text']}")
+                item_info += " - " + ", ".join(column_info)
+            result_lines.append(item_info)
+        
+        # 按名称排序
+        result_lines.sort()
+        return [
+            types.TextContent(
+                type="text",
+                text=f"Items ({len(result_lines)})：\n" + "\n".join(result_lines),
+            )
+        ]
+    else:
+        # 原有的只返回名称的逻辑
+        sorted_names = sorted([item["name"] for item in unique_items])
+        return [
+            types.TextContent(
+                type="text",
+                text=f"Item ({len(sorted_names)})：\n" + "\n".join(sorted_names),
+            )
+        ]
 
 
 async def handle_monday_list_subitems_in_items(

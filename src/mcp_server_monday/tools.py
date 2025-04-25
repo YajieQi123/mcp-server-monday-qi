@@ -206,6 +206,11 @@ ServerTools = [
                 "groupIds": {"type": "array", "items": {"type": "string"}},
                 "limit": {"type": "integer"},
                 "cursor": {"type": "string"},
+                "column_ids": {
+                    "type": "array", 
+                    "items": {"type": "string"},
+                    "description": "列的 ID 数组，指定需要返回的列，如果不提供则只返回基本信息",
+                },
             },
             "required": ["boardId", "groupIds", "limit"],
         },
@@ -500,6 +505,7 @@ def register_tools(server: Server, monday_client: MondayClient) -> None:
                         groupIds=arguments.get("groupIds"),
                         limit=arguments.get("limit"),
                         cursor=arguments.get("cursor"),
+                        column_ids=arguments.get("column_ids"),
                         monday_client=monday_client,
                     )
 
