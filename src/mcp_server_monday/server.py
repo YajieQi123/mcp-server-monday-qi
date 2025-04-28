@@ -13,22 +13,22 @@ from mcp_server_monday.tools import (
     register_tools,
 )
 
-# # 日志既写入文件也输出到控制台，级别为DEBUG
-# log_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
-# logger = logging.getLogger("mcp-server-monday-qi")
-# logger.setLevel(logging.DEBUG)
+# 日志既写入文件也输出到控制台，级别为DEBUG
+log_formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(message)s')
+logger = logging.getLogger("mcp-server-monday-qi")
+logger.setLevel(logging.DEBUG)
 
-# # 文件日志
-# file_handler = logging.FileHandler('logs/server.log', encoding='utf-8')
-# file_handler.setFormatter(log_formatter)
-# file_handler.setLevel(logging.DEBUG)
-# logger.addHandler(file_handler)
+# 文件日志
+file_handler = logging.FileHandler('logs/server.log', encoding='utf-8')
+file_handler.setFormatter(log_formatter)
+file_handler.setLevel(logging.DEBUG)
+logger.addHandler(file_handler)
 
-# # 控制台日志
-# console_handler = logging.StreamHandler()
-# console_handler.setFormatter(log_formatter)
-# console_handler.setLevel(logging.DEBUG)
-# logger.addHandler(console_handler)
+# 控制台日志
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(log_formatter)
+console_handler.setLevel(logging.DEBUG)
+logger.addHandler(console_handler)
 
 
 monday_client = None

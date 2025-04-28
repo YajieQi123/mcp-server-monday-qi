@@ -94,12 +94,15 @@ async def handle_monday_list_items_in_groups(
             )
         ]
     else:
-        # 原有的只返回名称的逻辑
-        sorted_names = sorted([item["name"] for item in unique_items])
+        # 修改为返回 name + id，便于自动化分析
+        result_lines = []
+        for item in unique_items:
+            result_lines.append(f"{item['name']} (ID: {item['id']})")
+        result_lines.sort()
         return [
             types.TextContent(
                 type="text",
-                text=f"Item ({len(sorted_names)})：\n" + "\n".join(sorted_names),
+                text=f"Items ({len(result_lines)})：\n" + "\n".join(result_lines),
             )
         ]
 
@@ -241,40 +244,66 @@ async def handle_monday_get_item_by_id(
         ]
 
 
-async def handle_monday_get_item_updates(
-    itemId: str,
-    monday_client: MondayClient,
-    limit: int = 25,
-) -> list[types.TextContent]:
-    """Get updates for a specific item in Monday.com"""
-
+async def get_item_id_by_name(board_id: str, group_id: str, target_name: str, monday_client: MondayClient) -> str | None:
+    """
+    根据成员姓名自动查找 itemId，找不到返回 None。
+    """
     query = f"""
     query {{
-        items (ids: {itemId}) {{
-            updates (limit: {limit}) {{
-                id
-                body
-                created_at
-                creator {{
+        boards(ids: {board_id}) {{
+            groups(ids: \"{group_id}\") {{
+                items {{
                     id
                     name
-                }}
-                assets {{
-                    id
-                    name
-                    url
                 }}
             }}
         }}
     }}
     """
+    response = monday_client.custom._query(query)
+    items = response["data"]["boards"][0]["groups"][0]["items"]
+    for item in items:
+        if item["name"].strip().lower() == target_name.strip().lower():
+            return item["id"]
+    return None
 
-    # Setting no_log flag to true if it exists to prevent activity tracking
-    # Note: This is a preventative measure as the _query method might accept this parameter
+async def handle_monday_get_item_updates(
+    itemId: str = None,
+    monday_client: MondayClient = None,
+    limit: int = 25,
+    include_assets: bool = False,
+    member_name: str = None,
+    board_id: str = None,
+    group_id: str = None,
+) -> list[types.TextContent]:
+    """
+    获取指定 Monday.com item 的所有更新。
+    itemId 优先，若未提供则根据 member_name+board_id+group_id 自动查找。
+    """
+    if not itemId and member_name and board_id and group_id:
+        itemId = await get_item_id_by_name(board_id, group_id, member_name, monday_client)
+        if not itemId:
+            return [types.TextContent(type="text", text=f"未找到成员 {member_name} 的 itemId。")]
+    elif not itemId:
+        return [types.TextContent(type="text", text=f"请提供 itemId 或 (member_name, board_id, group_id)。")]
+
+    # 动态拼接 GraphQL 字段，减少无用数据
+    asset_field = "assets { name url }" if include_assets else ""
+    query = f"""
+    query {{
+        items (ids: {itemId}) {{
+            updates (limit: {limit}) {{
+                body
+                created_at
+                creator {{ name }}
+                {asset_field}
+            }}
+        }}
+    }}
+    """
     try:
         response = monday_client.custom._query(query, no_log=True)
     except TypeError:
-        # If no_log param doesn't exist, try with default params
         response = monday_client.custom._query(query)
 
     if (
@@ -283,34 +312,27 @@ async def handle_monday_get_item_updates(
         or not response["data"]["items"]
         or not response["data"]["items"][0]["updates"]
     ):
-        return [
-            types.TextContent(type="text", text=f"No updates found for item {itemId}.")
-        ]
+        return [types.TextContent(type="text", text=f"No updates found for item {itemId}.")]
+
+    import re
+    def strip_html(html: str) -> str:
+        clean = re.compile('<.*?>')
+        return re.sub(clean, '', html)
 
     updates = response["data"]["items"][0]["updates"]
-
     formatted_updates = []
     for update in updates:
-        update_text = f"Update ID: {update['id']}\n"
-        update_text += f"Created: {update['created_at']}\n"
-        update_text += (
-            f"Creator: {update['creator']['name']} (ID: {update['creator']['id']})\n"
-        )
-        update_text += f"Body: {update['body']}\n"
-
-        # Add information about attached files if present
-        if update.get("assets"):
-            update_text += "\nAttached Files:\n"
-            for asset in update["assets"]:
-                update_text += f"- {asset['name']}: {asset['url']}\n"
-
-        update_text += "\n\n"
+        plain_body = strip_html(update['body']) if update['body'] else ''
+        update_text = f"Time: {update['created_at']}\n Creator: {update['creator']['name']}\nContent: {plain_body}"
+        if include_assets and update.get("assets"):
+            asset_lines = [f"- {a['name']}: {a['url']}" for a in update["assets"]]
+            update_text += "\nAttachments:\n" + "\n".join(asset_lines)
         formatted_updates.append(update_text)
 
     return [
         types.TextContent(
             type="text",
-            text=f"Updates for item {itemId}:\n\n{''.join(formatted_updates)}",
+            text=f"Item {itemId} 的更新内容：\n\n" + "\n\n".join(formatted_updates)
         )
     ]
 

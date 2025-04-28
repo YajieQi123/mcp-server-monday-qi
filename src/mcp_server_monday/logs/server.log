@@ -306,3 +306,151 @@
 [2025-04-24 17:53:20,292] [INFO] Step 3: Tools registered
 [2025-04-24 17:53:20,294] [INFO] Step 4: Entered stdio server context
 [2025-04-24 17:53:20,294] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:24:30,892] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:24:30,892] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:24:30,892] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:24:30,892] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:24:30,892] [INFO] Step 3: Tools registered
+[2025-04-25 16:24:30,892] [INFO] Step 3: Tools registered
+[2025-04-25 16:24:30,894] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:24:30,894] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:24:41,999] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:24:41,999] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:24:41,999] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:24:41,999] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:24:41,999] [INFO] Step 3: Tools registered
+[2025-04-25 16:24:41,999] [INFO] Step 3: Tools registered
+[2025-04-25 16:24:42,001] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:24:42,001] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:27:09,893] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:27:09,893] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:27:09,893] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:27:09,893] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:27:09,893] [INFO] Step 3: Tools registered
+[2025-04-25 16:27:09,893] [INFO] Step 3: Tools registered
+[2025-04-25 16:27:09,896] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:27:09,896] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:27:11,298] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:27:11,298] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:27:11,298] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:27:11,298] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:27:11,298] [INFO] Step 3: Tools registered
+[2025-04-25 16:27:11,298] [INFO] Step 3: Tools registered
+[2025-04-25 16:27:11,300] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:27:11,300] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:29:13,952] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:13,952] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,192] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,192] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,411] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,411] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,609] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,609] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,873] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:29:14,873] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 16:42:27,884] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:42:27,884] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:42:27,884] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:42:27,884] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:42:27,884] [INFO] Step 3: Tools registered
+[2025-04-25 16:42:27,884] [INFO] Step 3: Tools registered
+[2025-04-25 16:42:27,887] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:42:27,887] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:42:29,464] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:42:29,464] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:42:29,464] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:42:29,464] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:42:29,464] [INFO] Step 3: Tools registered
+[2025-04-25 16:42:29,464] [INFO] Step 3: Tools registered
+[2025-04-25 16:42:29,465] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:42:29,465] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:51:26,143] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:51:26,143] [INFO] Starting Monday.com MCP server
+[2025-04-25 16:51:26,143] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:51:26,143] [INFO] Step 2: MondayClient initialized
+[2025-04-25 16:51:26,143] [INFO] Step 3: Tools registered
+[2025-04-25 16:51:26,143] [INFO] Step 3: Tools registered
+[2025-04-25 16:51:26,145] [INFO] Step 4: Entered stdio server context
+[2025-04-25 16:51:26,145] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:03:02,773] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:03:02,773] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:03:02,773] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:03:02,773] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:03:02,773] [INFO] Step 3: Tools registered
+[2025-04-25 17:03:02,773] [INFO] Step 3: Tools registered
+[2025-04-25 17:03:02,775] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:03:02,775] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:03:04,943] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:03:04,943] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:03:04,943] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:03:04,943] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:03:04,943] [INFO] Step 3: Tools registered
+[2025-04-25 17:03:04,943] [INFO] Step 3: Tools registered
+[2025-04-25 17:03:04,944] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:03:04,944] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:26:17,215] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:26:17,215] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:26:17,215] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:26:17,215] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:26:17,216] [INFO] Step 3: Tools registered
+[2025-04-25 17:26:17,216] [INFO] Step 3: Tools registered
+[2025-04-25 17:26:17,218] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:26:17,218] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:26:18,489] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:26:18,489] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:26:18,489] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:26:18,489] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:26:18,489] [INFO] Step 3: Tools registered
+[2025-04-25 17:26:18,489] [INFO] Step 3: Tools registered
+[2025-04-25 17:26:18,491] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:26:18,491] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:42:05,081] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:42:05,081] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:42:05,081] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:42:05,081] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:42:05,081] [INFO] Step 3: Tools registered
+[2025-04-25 17:42:05,081] [INFO] Step 3: Tools registered
+[2025-04-25 17:42:05,083] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:42:05,083] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:42:06,273] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:42:06,273] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:42:06,273] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:42:06,273] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:42:06,274] [INFO] Step 3: Tools registered
+[2025-04-25 17:42:06,274] [INFO] Step 3: Tools registered
+[2025-04-25 17:42:06,276] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:42:06,276] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:43:27,209] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,209] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,412] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,412] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,632] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,632] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,829] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:27,829] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:28,031] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:43:28,031] [ERROR] Error calling tool monday-get-item-updates: 400 Client Error: Bad Request for url: https://api.monday.com/v2
+[2025-04-25 17:45:55,386] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:45:55,386] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:45:55,386] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:45:55,386] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:45:55,386] [INFO] Step 3: Tools registered
+[2025-04-25 17:45:55,386] [INFO] Step 3: Tools registered
+[2025-04-25 17:45:55,391] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:45:55,391] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:45:57,697] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:45:57,697] [INFO] Starting Monday.com MCP server
+[2025-04-25 17:45:57,698] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:45:57,698] [INFO] Step 2: MondayClient initialized
+[2025-04-25 17:45:57,698] [INFO] Step 3: Tools registered
+[2025-04-25 17:45:57,698] [INFO] Step 3: Tools registered
+[2025-04-25 17:45:57,699] [INFO] Step 4: Entered stdio server context
+[2025-04-25 17:45:57,699] [INFO] Step 4: Entered stdio server context
+[2025-04-27 11:05:38,508] [INFO] Starting Monday.com MCP server
+[2025-04-27 11:05:38,508] [INFO] Starting Monday.com MCP server
+[2025-04-27 11:05:38,531] [INFO] Step 2: MondayClient initialized
+[2025-04-27 11:05:38,531] [INFO] Step 2: MondayClient initialized
+[2025-04-27 11:05:38,531] [INFO] Step 3: Tools registered
+[2025-04-27 11:05:38,531] [INFO] Step 3: Tools registered
+[2025-04-27 11:05:38,537] [INFO] Step 4: Entered stdio server context
+[2025-04-27 11:05:38,537] [INFO] Step 4: Entered stdio server context
