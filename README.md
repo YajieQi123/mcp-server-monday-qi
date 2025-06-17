@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yajieqi123-mcp-server-monday-qi-badge.png)](https://mseep.ai/app/yajieqi123-mcp-server-monday-qi)
+
 # Monday.com MCP server
 
 [![smithery badge](https://smithery.ai/badge/@sakce/mcp-server-monday)](https://smithery.ai/server/@sakce/mcp-server-monday)
